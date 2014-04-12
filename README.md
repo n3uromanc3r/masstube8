@@ -16,4 +16,6 @@ sudo mv masstube8.py /usr/bin/
 Usage
 =====
 
+```
 masstube8.py http://www.tube8.com/video1 http://www.tube8.com/video2 http://www.tube8.com/video3
+```
