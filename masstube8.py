@@ -14,15 +14,15 @@ def main():
 			url=arg
 			s = requests.Session()
 
-			response = s.get(url, headers={ 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0' })
+			response = s.get(url, headers={ 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0' })
 
 			soup = BeautifulSoup(response.text)
-			title = re.sub('[^\w\-_\. ]', '_', soup.title.string)			
+			title = re.sub('[^\w\-_\. ]', '_', soup.title.string)
 
-			vid_url_match = re.search("(?<=videoUrlJS\t= ')[^}]*(?=',)", response.text)
+			vid_url_match = re.search("(?<=videoUrlJS\t= ')[^}]*?(?=',)", response.text)
 			vid_url = vid_url_match.group()
 
-			u = urllib2.urlopen(vid_url)			
+			u = urllib2.urlopen(vid_url)
 			meta = u.info()
 			file_size = int(meta.getheaders("Content-Length")[0])
 
